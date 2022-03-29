@@ -13,11 +13,17 @@ public class DiceGame {
 		this.sum=0;
 		this.scan=new Scanner(System.in);
 	}
+	
+	public int randomNumber(int min, int max) {
+		double randomNumber=Math.floor(max*Math.random())+1;
+		return (int) randomNumber;
+		
+	}
 
 	int [] getDice() {
 		int [] diceRoll= new int [cpuDice];
 		for(int i=0;i<cpuDice;i++) {
-			diceRoll[i]=(int) Math.floor(6*Math.random()+1);
+			diceRoll[i]=randomNumber(1,6);
 		};
 		return diceRoll;
 	}
@@ -30,7 +36,7 @@ public class DiceGame {
 	}
 	int cpuAnswer(int sum) {
 		if(Math.random()<0.5) {
-			int lie= (int) Math.floor(sum*Math.random()+1);
+			int lie=randomNumber(1,sum);
 			return lie;
 		}
 		else {
