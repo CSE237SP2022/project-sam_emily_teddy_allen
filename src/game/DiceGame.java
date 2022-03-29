@@ -12,7 +12,6 @@ public class DiceGame {
 		this.cpuDice=6;
 		this.sum=0;
 		this.scan=new Scanner(System.in);
-		// TODO Auto-generated constructor stub
 	}
 
 	int [] getDice() {
@@ -62,6 +61,7 @@ public class DiceGame {
 	}
 
 	public boolean nextTurn() {
+		System.out.println("CPU has " + cpuDice + " dice left. Player has " + humanLives + " lives left");
 		Boolean humanWin=false;
 		int [] cpuDice=getDice();
 		sum=sumDice(cpuDice);
@@ -87,7 +87,6 @@ public class DiceGame {
 	public boolean play() {
 		help();
 		while(humanLives>0&&cpuDice>0) {
-			System.out.println("CPU has " + cpuDice + " dice left. Player has " + humanLives + " lives left");
 			Boolean resultOfTurn=nextTurn();
 			if(resultOfTurn) {
 				cpuDice--;
@@ -113,12 +112,5 @@ public class DiceGame {
 		}
 	}
 
-	public int getCpuDice() {
-		return cpuDice;
-	}
-
-	public int getHumanLives() {
-		return humanLives;
-	}
 
 }
