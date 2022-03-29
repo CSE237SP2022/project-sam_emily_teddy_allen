@@ -10,14 +10,16 @@ public class Game {
 		Player player= new Player(name);
 		System.out.println("Hello "+ player.getName()+" please enter anything to continue");
 		scan.nextLine();
-		scan.close();
+		//scan.close();
 		System.out.println("Starting game");
 	}
 	
 	
 	public static void intro() {
 		createCharacter();
-		
+		DiceGame game=new DiceGame();
+		game.play();
+	
 		
 	}
 	

@@ -14,29 +14,29 @@ public class DiceGame {
 		this.scan=new Scanner(System.in);
 	}
 	
-	public int randomNumber(int min, int max) {
+	private int randomNumber(int min, int max) {
 		double randomNumber=Math.floor(max*Math.random())+1;
 		return (int) randomNumber;
 		
 	}
 
-	int [] getDice() {
+	private int [] getDice() {
 		int [] diceRoll= new int [cpuDice];
 		for(int i=0;i<cpuDice;i++) {
 			diceRoll[i]=randomNumber(1,6);
 		};
 		return diceRoll;
 	}
-	int sumDice(int [] dice) {
+	private int sumDice(int [] dice) {
 		int sum=0;
 		for(int diceValue: dice) {
 			sum+=diceValue;
 		}
 		return sum;
 	}
-	int cpuAnswer(int sum) {
+	private int cpuAnswer(int sum) {
 		if(Math.random()<0.5) {
-			int lie=randomNumber(1,sum);
+			int lie=randomNumber(cpuDice,sum);
 			return lie;
 		}
 		else {
@@ -45,9 +45,9 @@ public class DiceGame {
 		
 		
 	}
-	Boolean humanChoice(int cpuGuess){
+	private Boolean humanChoice(int cpuGuess){
 		while(true) {
-			System.out.println("CPU says sum is "+cpuGuess+". Do you believe them? 1 for yes 0 for no. Type Help! for instructions");
+			System.out.println("CPU says sum is "+cpuGuess+". Do you believe them? Enter 1 for Yes 0 for No. Type Help! for instructions");
 			String humanResponse=scan.nextLine();
 			if(humanResponse.equals("1")) {
 				return true;
@@ -62,11 +62,11 @@ public class DiceGame {
 
 
 	}
-	public void help() {
+	private void help() {
 		System.out.println("This is a dice game similar to liars dice or cheat. A cpu will roll dice and provide a sum. A player can choose to believe the CPU or doubt them. If they are correct, the cpu will lose a dice (starting from 6), if not, the player will lose a life (they start with 3).");
 	}
 
-	public boolean nextTurn() {
+	private boolean nextTurn() {
 		System.out.println("CPU has " + cpuDice + " dice left. Player has " + humanLives + " lives left");
 		Boolean humanWin=false;
 		int [] cpuDice=getDice();
@@ -103,7 +103,7 @@ public class DiceGame {
 		}
 		boolean winner=getWinner();
 		
-		scan.close();
+		
 		return winner;
 	}
 
