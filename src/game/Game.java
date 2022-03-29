@@ -17,6 +17,7 @@ public class Game {
 	
 	public static void intro() {
 		createCharacter();
+		
 	}
 	
 	public static void main(String[] args) {
