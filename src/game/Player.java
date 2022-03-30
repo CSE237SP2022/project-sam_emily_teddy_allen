@@ -8,23 +8,23 @@ public class Player {
 	public double health;
 	
 
-	public Player(String playerName) {
+	public Player(String playerName) { //create a character with the given player name
 		// TODO Auto-generated constructor stub
 		this.name=playerName;
 		this.level=1;
 		this.attackStat=level*25;
 		this.health=100;
 	}
-	public String getName() {
+	public String getName() { //get player name
 		return name;
 	}
-	public int getLevel() {
+	public int getLevel() {// get current player level
 		return level;
 	}
-	public double getHealth() {
+	public double getHealth() { //get current player health
 		return health;
 	}
-	public int getAttackStat() {
+	public int getAttackStat() { //get current player attack stat
 		return attackStat;
 	}
 
