@@ -30,7 +30,7 @@ class PlayerUnitTests {
 	@Test
 	void initialAttackCheck(){
 		Player testPlayer=new Player("John");
-		assertEquals(testPlayer.getAttackStat(),5);	
+		assertEquals(testPlayer.getAttackStat(),25);	
 	}
 
 }
