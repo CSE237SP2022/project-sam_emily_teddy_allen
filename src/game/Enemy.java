@@ -7,7 +7,6 @@ public class Enemy {
 	private String monsterName;
 
 	public Enemy(int health, int attackStat, String name) {
-		// TODO Auto-generated constructor stub
 		this.monsterName=name;
 		this.attack=attackStat;
 		this.hp=health;

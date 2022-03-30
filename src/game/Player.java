@@ -9,7 +9,6 @@ public class Player {
 	
 
 	public Player(String playerName) {
-		// TODO Auto-generated constructor stub
 		this.name=playerName;
 		this.level=1;
 		this.attackStat=5;

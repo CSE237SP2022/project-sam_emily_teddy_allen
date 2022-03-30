@@ -21,6 +21,7 @@ public class Battle {
 		System.out.println("");
 	}
 	
+	
 	public void playerTurn() {
 	
 		while(this.fighting) {
