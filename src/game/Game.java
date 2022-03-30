@@ -138,6 +138,10 @@ public class Game {
 			{
 				System.out.println("They suddenly morph into a monster and attack you!");
 				//combat sequence
+				
+				Player enemy = new Player("Monster");
+				//Battle battle = new Battle(this.player, enemy);
+				//battle.fight();
 				progress = 6;
 			}
 			
