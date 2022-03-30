@@ -9,9 +9,13 @@ public class Blackjack {
 		int player_card2=getCard();
 		int house_card1=getCard();
 		int house_card2=getCard();
-		
+			
 		int player_total=player_card1+player_card2;
 		int house_total=house_card1+house_card2;
+		System.out.println("This is Blackjack. Your goal is to get a sum from your cards as close "
+				+ "to 21 as possible without going over it. If you hit you will take another card, "
+				+ "otherwise you will keep your current cards. After your decision if you're closer"
+				+ "to 21 than the dealer, you win!");
 		System.out.println("Your cards are "+player_card1+" and "+player_card2);
 		
 		//if dealer has blackjack or you bust, dealer automatically wins

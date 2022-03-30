@@ -8,6 +8,7 @@ public class Battle {
 	private Player player;
 	private boolean fighting;
 	public String winner;
+	public int endCon;
 	
 	public Battle(Player player, Player enemy) {
 		this.player = player;
@@ -16,11 +17,12 @@ public class Battle {
 	}
 	
 	
-	public void fight() {
+	public int fight() {
 		System.out.println(player.getName() + " vs. " + enemy.getName());
 		playerTurn();
 		System.out.println("Battle is over");
-		System.out.println("");
+		return endCon;
+		
 	}
 	
 	
@@ -38,6 +40,7 @@ public class Battle {
 				
 			} else if(move.equals("run")) {
 				System.out.println("You ran.");
+				endCon = 1;
 				this.winner = "No winner";
 				this.fighting = false;
 				
@@ -49,6 +52,7 @@ public class Battle {
 				System.out.println("You win!");
 				//Potentially add part here to level up if you win
 				scan.close();
+				endCon = 0;
 				this.winner = player.getName();
 				this.fighting = false;
 			} else {
@@ -67,6 +71,7 @@ public class Battle {
 				player.health = player.health - 25;
 			} else {
 				System.out.println(enemy.getName() + " ran away");
+				endCon = 2;
 				this.winner = "No winner";
 				this.fighting = false;
 			}
@@ -74,6 +79,7 @@ public class Battle {
 			if(player.getHealth() == 0) {
 				System.out.println("The monster wins. You lose!");
 				System.out.println("");
+				endCon = 3;
 				this.winner = enemy.getName();
 				this.fighting = false;
 			} else {
