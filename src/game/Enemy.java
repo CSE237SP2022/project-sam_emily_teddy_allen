@@ -2,7 +2,7 @@ package game;
 
 public class Enemy {
 
-	private int hp;
+	public int hp;
 	private int attack;
 	private String monsterName;
 

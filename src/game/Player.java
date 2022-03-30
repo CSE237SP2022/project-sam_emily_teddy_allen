@@ -5,7 +5,7 @@ public class Player {
 	private String name;
 	private int level;
 	private int attackStat;
-	private double health;
+	public int health;
 	
 
 	public Player(String playerName) {
@@ -25,7 +25,7 @@ public class Player {
 		return health;
 	}
 	public int getAttackStat() {
-		return attackStat;
+		return this.level*25;
 	}
 
 }
