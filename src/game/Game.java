@@ -18,8 +18,8 @@ public class Game {
 	
 	public static void intro() {
 		createCharacter();
-		DiceGame game=new DiceGame();
-		game.play();
+//		DiceGame game=new DiceGame();
+//		game.play();
 	
 		
 	}
@@ -120,8 +120,18 @@ public class Game {
 			
 			if(progress == 3)
 			{
-				//play dice game
-				progress = 6;
+				DiceGame game = new DiceGame();
+				boolean win = game.play();
+				if(win)
+				{
+					progress = 7;
+				}
+				else
+				{
+					System.out.println("You have lost. You glance towards the hooded figure in "
+							+ "defeat.");
+					progress = 4;
+				}
 			}
 			
 			if(progress == 4)
@@ -135,6 +145,17 @@ public class Game {
 			{
 				//play card game
 				progress = 6;
+			}
+			if(progress == 6)
+			{
+				
+			}
+			if(progress == 7)
+			{
+				System.out.println("Upon defeat, the enemy screeches in pain and fades "
+						+ "away into a dark mist. The mist blows through the tress in front of "
+						+ "you revealing a path out of the forest. After following this path, you "
+						+ "are relieved to see you are home. Your journey is now complete. You Win!");
 			}
 		}
 		
