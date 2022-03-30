@@ -7,6 +7,7 @@ public class Battle {
 	private Enemy enemy;
 	private Player player;
 	private boolean fighting;
+	public String winner;
 	
 	public Battle(Player player, Enemy enemy) {
 		this.player = player;
@@ -14,6 +15,9 @@ public class Battle {
 		this.fighting = true;
 	}
 	
+	/*
+		TODO: - Get rid of enemy class -> use Player class instead
+	*/
 	public void fight() {
 		System.out.println(player.getName() + " vs. " + enemy.getMonsterName());
 		playerTurn();
@@ -22,7 +26,7 @@ public class Battle {
 	}
 	
 	
-	public void playerTurn() {
+	private void playerTurn() {
 	
 		while(this.fighting) {
 			Scanner scan = new Scanner(System.in);
@@ -36,6 +40,7 @@ public class Battle {
 				
 			} else if(move.equals("run")) {
 				System.out.println("You ran.");
+				this.winner = "No winner";
 				this.fighting = false;
 				
 			} else {
@@ -44,15 +49,16 @@ public class Battle {
 			
 			if(enemy.getHp() == 0) {
 				System.out.println("You win!");
+				scan.close();
+				this.winner = player.getName();
 				this.fighting = false;
 			} else {
 				enemyTurn();
 			}
-			scan.close();
 		}
 	}
 	
-	public void enemyTurn() {
+	private void enemyTurn() {
 		while(this.fighting) {
 			System.out.println("********************");
 			System.out.println(enemy.getMonsterName() + "'s turn.");
@@ -62,12 +68,14 @@ public class Battle {
 				player.health = player.health - 25;
 			} else {
 				System.out.println(enemy.getMonsterName() + " ran away");
+				this.winner = "No winner";
 				this.fighting = false;
 			}
 			
 			if(player.getHealth() == 0) {
 				System.out.println("The monster wins. You lose!");
 				System.out.println("");
+				this.winner = enemy.getMonsterName();
 				this.fighting = false;
 			} else {
 				playerTurn();
