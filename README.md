@@ -12,7 +12,7 @@ Allen: I worked priarily on making our main story loop. I laid out a multiple pa
 
 Right now there is nothing currently broken, but things can be improved. There is an issue with eclispe where you have to configure the build path after each pull. However, the code still works in terminal it seems to just be eclispe.
 
-In order to run our game you navigate to the src folder, run \n
-javac ./game/Game.java \n
-then run  \n
+In order to run our game you navigate to the src folder, run <br/>
+javac ./game/Game.java <br/>
+then run  <br/>
 java ./game/Game.java.
