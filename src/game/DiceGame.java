@@ -14,7 +14,7 @@ public class DiceGame {
 		this.scan=new Scanner(System.in);
 	}
 	
-	private int randomNumber(int min, int max) {
+	public int randomNumber(int min, int max) {
 		double randomNumber=Math.floor(max*Math.random())+1;
 		return (int) randomNumber;
 		

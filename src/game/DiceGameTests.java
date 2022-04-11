@@ -28,5 +28,15 @@ class DiceGameTests {
 		int sum=game.sumDice(dice);
 		assertEquals(15,sum);
 	}
+	@Test
+	void DiceGameRandomTest() {
+		DiceGame game=new DiceGame();
+		double random=game.randomNumber(1, 100);
+		boolean checkRange=false;
+		if(random>0&&random<101) {
+			checkRange=true;
+		}
+		assertEquals(checkRange,true);
+	}
 
 }
