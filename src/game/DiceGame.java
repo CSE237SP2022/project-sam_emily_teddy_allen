@@ -14,28 +14,55 @@ public class DiceGame {
 		this.scan=new Scanner(System.in);
 	}
 	
-	private int randomNumber(int min, int max) { //generate random number between min and max
+
+	public int randomNumber(int min, int max) { //generate random number between min and max
+
 		double randomNumber=Math.floor(max*Math.random())+1;
 		return (int) randomNumber;
 		
 	}
 
-	private int [] getDice() { //get set of dice using current number of cpu dice
+
+	public int [] getDice() { //get set of dice using current number of cpu dice
+
 		int [] diceRoll= new int [cpuDice];
 		for(int i=0;i<cpuDice;i++) {
 			diceRoll[i]=randomNumber(1,6);
 		};
 		return diceRoll;
 	}
-	private int sumDice(int [] dice) { //returns sum of the current dice roll from getDice()
+
+	public int sumDice(int [] dice) { //returns sum of the current dice roll from getDice()
+
 		int sum=0;
 		for(int diceValue: dice) {
 			sum+=diceValue;
 		}
 		return sum;
 	}
+
+	private double cpuRisk() {
+		double riskCalculation=1;
+		if(cpuDice>4) {
+			riskCalculation=0.5;
+		}
+		if(cpuDice<3) {
+			riskCalculation=3.0;
+		}
+		return riskCalculation;
+	}
+	private double humanFactor() {
+		double humanRisk=1;
+		if(cpuDice>humanLives) {
+			humanRisk=2.0;
+		}
+		return humanRisk;
+	}
 	private int cpuAnswer(int sum) { //return the answer for the cpu if its a lie or true
-		if(Math.random()<0.5) {
+		double cpuRisk=cpuRisk();
+		double humanRisk=humanFactor();
+		double cpuRoll=(Math.random()*cpuRisk)/humanRisk;
+		if(cpuRoll<0.5) {
 			int lie=randomNumber(cpuDice,sum);
 			return lie;
 		}

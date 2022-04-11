@@ -12,17 +12,31 @@ class DiceGameTests {
 		assertNotNull(game);
 	}
 	@Test
-	void DiceGamePlayTest() {
+	void DiceGameDiceTest() {
 		DiceGame game=new DiceGame();
-		Boolean test=game.play();
-		assertNotNull(test);
+		int [] dice=game.getDice();
+		assertEquals(dice.getClass(),int[].class);
+		assertEquals(6,dice.length);
 	}
 	@Test
-	void DiceGamePlayTypeTest() {
+	void DiceGameDiceSumTest() {
 		DiceGame game=new DiceGame();
-		Boolean test=game.play();
-		assertEquals(test.getClass(),Boolean.class);
+		int [] dice=new int[6];
+		for(int i=0;i<dice.length;i++) {
+			dice[i]=i;
+		}
+		int sum=game.sumDice(dice);
+		assertEquals(15,sum);
 	}
-
+	@Test
+	void DiceGameRandomTest() {
+		DiceGame game=new DiceGame();
+		double random=game.randomNumber(1, 100);
+		boolean checkRange=false;
+		if(random>0&&random<101) {
+			checkRange=true;
+		}
+		assertEquals(checkRange,true);
+	}
 
 }
