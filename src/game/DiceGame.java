@@ -34,8 +34,20 @@ public class DiceGame {
 		}
 		return sum;
 	}
+	private double cpuRisk() {
+		double riskCalculation=1;
+		if(cpuDice>4) {
+			riskCalculation=0.5;
+		}
+		if(cpuDice<3) {
+			riskCalculation=3.0;
+		}
+		return riskCalculation;
+	}
 	private int cpuAnswer(int sum) {
-		if(Math.random()<0.5) {
+		double risk=cpuRisk();
+		double cpuRoll=Math.random()*risk;
+		if(cpuRoll<0.5) {
 			int lie=randomNumber(cpuDice,sum);
 			return lie;
 		}
@@ -47,7 +59,7 @@ public class DiceGame {
 	}
 	private Boolean humanChoice(int cpuGuess){
 		while(true) {
-			System.out.println("CPU says sum is "+cpuGuess+". Do you believe them? Enter 1 for Yes 0 for No. Type Help! for instructions");
+			System.out.println("CPU says sum is "+cpuGuess+". Do you believe them? Enter Y for Yes N for No. Type Help! for instructions");
 			String humanResponse=scan.nextLine();
 			if(humanResponse.equals("1")) {
 				return true;
