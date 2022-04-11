@@ -20,14 +20,14 @@ public class DiceGame {
 		
 	}
 
-	private int [] getDice() {
+	public int [] getDice() {
 		int [] diceRoll= new int [cpuDice];
 		for(int i=0;i<cpuDice;i++) {
 			diceRoll[i]=randomNumber(1,6);
 		};
 		return diceRoll;
 	}
-	private int sumDice(int [] dice) {
+	public int sumDice(int [] dice) {
 		int sum=0;
 		for(int diceValue: dice) {
 			sum+=diceValue;
@@ -44,9 +44,17 @@ public class DiceGame {
 		}
 		return riskCalculation;
 	}
+	private double humanFactor() {
+		double humanRisk=1;
+		if(cpuDice>humanLives) {
+			humanRisk=2.0;
+		}
+		return humanRisk;
+	}
 	private int cpuAnswer(int sum) {
-		double risk=cpuRisk();
-		double cpuRoll=Math.random()*risk;
+		double cpuRisk=cpuRisk();
+		double humanRisk=humanFactor();
+		double cpuRoll=(Math.random()*cpuRisk)/humanRisk;
 		if(cpuRoll<0.5) {
 			int lie=randomNumber(cpuDice,sum);
 			return lie;
@@ -59,12 +67,12 @@ public class DiceGame {
 	}
 	private Boolean humanChoice(int cpuGuess){
 		while(true) {
-			System.out.println("CPU says sum is "+cpuGuess+". Do you believe them? Enter Y for Yes N for No. Type Help! for instructions");
+			System.out.println("CPU says sum is "+cpuGuess+". Do you believe them? Enter y for Yes n for No. Type Help! for instructions");
 			String humanResponse=scan.nextLine();
-			if(humanResponse.equals("1")) {
+			if(humanResponse.equals("y")) {
 				return true;
 			}
-			if(humanResponse.equals("0")) {
+			if(humanResponse.equals("n")) {
 				return false;
 			}
 			if(humanResponse.equals("Help!")) {
