@@ -42,6 +42,10 @@ public class Player {
 	public void addMoney(int gain) {
 		money+=gain;
 	}
+	
+	public void levelUp() {
+		level += 1;
+	}
 
 
 }
