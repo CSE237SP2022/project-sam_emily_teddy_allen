@@ -15,7 +15,7 @@ public class DiceGame {
 	}
 	
 
-	public int randomNumber(int min, int max) { //generate random number between min and max
+	public int randomNumber(int max) { //generate random number up to max number from 1
 
 		double randomNumber=Math.floor(max*Math.random())+1;
 		return (int) randomNumber;
@@ -27,7 +27,7 @@ public class DiceGame {
 
 		int [] diceRoll= new int [cpuDice];
 		for(int i=0;i<cpuDice;i++) {
-			diceRoll[i]=randomNumber(1,6);
+			diceRoll[i]=randomNumber(6);
 		};
 		return diceRoll;
 	}
@@ -63,7 +63,7 @@ public class DiceGame {
 		double humanRisk=humanFactor();
 		double cpuRoll=(Math.random()*cpuRisk)/humanRisk;
 		if(cpuRoll<0.5) {
-			int lie=randomNumber(cpuDice,sum);
+			int lie=randomNumber(sum);
 			return lie;
 		}
 		else {
