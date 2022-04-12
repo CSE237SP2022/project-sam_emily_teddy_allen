@@ -50,7 +50,12 @@ public class Battle {
 			
 			if(enemy.getHealth() == 0) {
 				System.out.println("You win!");
-				//Potentially add part here to level up if you win
+				this.player.levelUp();
+				int coins = 10;
+				this.player.addMoney(coins);
+				System.out.println("You leveled up! You are now level " + player.getLevel());
+				System.out.println("Your attack now does " + player.getAttackStat() + " damage.");
+				System.out.println("You won " + coins + " coins. You now have " + player.money + " coins");
 				scan.close();
 				endCon = 0;
 				this.winner = player.getName();
