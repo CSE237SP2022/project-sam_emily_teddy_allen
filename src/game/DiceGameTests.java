@@ -31,7 +31,7 @@ class DiceGameTests {
 	@Test
 	void DiceGameRandomTest() {
 		DiceGame game=new DiceGame();
-		double random=game.randomNumber(1, 100);
+		double random=game.randomNumber(100);
 		boolean checkRange=false;
 		if(random>0&&random<101) {
 			checkRange=true;
