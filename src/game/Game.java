@@ -11,8 +11,7 @@ public class Game {
 	    System.out.println("What is your name?");
 		String name = scan.nextLine();
 		player1 = new Player(name);
-		System.out.println("Hello "+ player1.getName()+" please enter anything to continue");
-		scan.nextLine();
+		System.out.println("Hello "+ player1.getName());
 
 		System.out.println("Starting game");
 	}
@@ -20,10 +19,6 @@ public class Game {
 	
 	public static void intro() {
 		createCharacter();
-//		DiceGame game=new DiceGame();
-//		game.play();
-	
-		
 	}
 	
 	public static int start() {

@@ -31,11 +31,13 @@ public class Battle {
 		while(this.fighting) {
 			Scanner scan = new Scanner(System.in);
 			System.out.println("********************");
+			System.out.println();
+			System.out.println("Player has "+ player.getHealth()+" health while monster has " +enemy.getHealth());
 			System.out.println(player.getName() + "'s Turn. Will you attack or run?");
 			String move = scan.nextLine();
 	
 			if(move.equals("attack")) {
-				System.out.println("You attacked.");
+				System.out.println("You attacked and dealt "+player.getAttackStat()+" damage");
 				enemy.health = enemy.health - player.getAttackStat();
 				
 			} else if(move.equals("run")) {
@@ -69,6 +71,7 @@ public class Battle {
 	private void enemyTurn() {
 		while(this.fighting) {
 			System.out.println("********************");
+			System.out.println();
 			System.out.println(enemy.getName() + "'s turn.");
 			double move = Math.random();
 			if(move < 0.75) {
