@@ -14,7 +14,7 @@ Right now there is nothing currently broken, but things can be improved. There i
 
 Iteration 2:
 What user stories were completed this iteration?
-This iteration we made improvements tot he blackjack and DiceGame AI to be more responsive to the player. We also improved the battle system to level up each time you win and gain money to spend at a shop. We also made the shop this time that you can visit and buy items. We  added spacing throughout the entire game to make it more readable. A script called Bandersnatch.sh was added to make our game more easily usable. The story was updated with better modularity and function so that it can be more easily tested and to imporve cleanliness.
+This iteration we made improvements to the blackjack and DiceGame AI to be more responsive to the player. We also improved the battle system to level up each time you win and gain money to spend at a shop. We also made the shop this time that you can visit and buy items. We added spacing throughout the entire game to make it more readable. A script called Bandersnatch.sh was added to make our game more easily usable. The story was updated with better modularity and function so that it can be more easily tested and to imporve cleanliness.
 
 What user stories do you intend to complete next iteration?
 We added the shop but we have no means of currently using the items you buy. Thus, we would like to add the ability to use items throughout the story and battle in order to heal. Additionally, we can add the ability to sell items you previously bought/items dropped in battle to make more money.
