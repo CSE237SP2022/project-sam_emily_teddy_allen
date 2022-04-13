@@ -57,6 +57,8 @@ public class Store {
 		}
 	}
 	public void enter() {
+		System.out.println("********************");
+		System.out.println();
 		System.out.println("Welcome! What do you want to buy?");
 		getItems();
 		display();

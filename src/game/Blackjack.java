@@ -20,8 +20,8 @@ public class Blackjack {
 
 
 	public static void main(String args[]) {
-
-
+		System.out.println("********************");
+		System.out.println();
 		System.out.println("This is Blackjack. Your goal is to get a sum from your cards as close "
 				+ "to 21 as possible without going over it. If you hit you will take another card, "
 				+ "otherwise you will keep your current cards. After your decision if you're closer"
@@ -59,9 +59,10 @@ public class Blackjack {
 	}
 	
 	public static int [] newPlayerCard(int [] cards) {
-		
+		;
 		boolean add_cards=true;
 		while (add_cards) {
+			System.out.println();
 			System.out.println("Would you like to hit (y/n)?");
 			Scanner scan2 = new Scanner(System.in);
 			String result2 = scan2.nextLine();
@@ -105,10 +106,12 @@ public class Blackjack {
 		boolean gameOver=false;
 		int player_total=arraySum(player_cards);
 		int house_total=arraySum(house_cards);
+		System.out.println("********************");
+		System.out.println();
 		System.out.println("Dealer's starting cards are "+Arrays.toString(house_cards)+" --> "+house_total);
 
 		while (gameOver==false) {
-			
+			System.out.println();
 
 			if (player_total>house_total & player_total<=21) { //dealer wants to play another card
 				System.out.println("Dealer drawing again");

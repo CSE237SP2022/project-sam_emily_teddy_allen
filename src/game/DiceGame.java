@@ -74,6 +74,7 @@ public class DiceGame {
 	}
 	private Boolean humanChoice(int cpuGuess){ //processes the human turn returning true if they believe the cpu and false if not. Also has help() function if the player needs instructions
 		while(true) {
+			System.out.println();
 			System.out.println("CPU says sum is "+cpuGuess+". Do you believe them? Enter y for Yes n for No. Type Help! for instructions");
 			String humanResponse=scan.nextLine();
 			if(humanResponse.equals("y")) {
@@ -94,6 +95,7 @@ public class DiceGame {
 	}
 
 	private boolean nextTurn() { //processes a turn and returns true if the player correctly guesses and false if not
+		System.out.println("********************");
 		System.out.println("CPU has " + cpuDice + " dice left. Player has " + humanLives + " lives left");
 		Boolean humanWin=false;
 		int [] cpuDice=getDice();
@@ -118,7 +120,10 @@ public class DiceGame {
 
 
 	public boolean play() { //plays the game by processing turns until either the human is out of lives or cpu out of dice. If the player wins, it returns true, if not it returns false.
+		System.out.println("********************");
+		System.out.println();
 		help();
+		System.out.println();
 		while(humanLives>0&&cpuDice>0) {
 			Boolean resultOfTurn=nextTurn();
 			if(resultOfTurn) {
