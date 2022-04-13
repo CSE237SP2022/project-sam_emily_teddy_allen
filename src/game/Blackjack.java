@@ -20,10 +20,13 @@ public class Blackjack {
 
 
 	public static void main(String args[]) {
+
+
 		System.out.println("This is Blackjack. Your goal is to get a sum from your cards as close "
 				+ "to 21 as possible without going over it. If you hit you will take another card, "
 				+ "otherwise you will keep your current cards. After your decision if you're closer"
 				+ "to 21 than the dealer, you win!");
+
 		
 		Blackjack game = new Blackjack();
 		System.out.println("Your cards are "+Arrays.toString(game.playerCards)+" --> "+game.playerTotal);
@@ -31,6 +34,7 @@ public class Blackjack {
 		//game starts with player choosing if they want a card
 		game.playerCards=newPlayerCard(game.playerCards);
 		game.playerTotal=arraySum(game.playerCards);
+
 		
 		//if dealer has blackjack or you bust, dealer automatically wins
 		if (game.playerTotal>21 || game.houseTotal==21) {
