@@ -58,7 +58,6 @@ public class Battle {
 				System.out.println("You leveled up! You are now level " + player.getLevel());
 				System.out.println("Your attack now does " + player.getAttackStat() + " damage.");
 				System.out.println("You won " + coins + " coins. You now have " + player.money + " coins");
-				scan.close();
 				endCon = 0;
 				this.winner = player.getName();
 				this.fighting = false;

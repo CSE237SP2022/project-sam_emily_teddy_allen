@@ -83,6 +83,7 @@ public class Game {
 		{
 			if(choice.equals("Y"))
 			{
+				System.out.println("Woo");
 				return 3;
 			}
 			else if(choice.equals("N"))
@@ -175,7 +176,7 @@ public class Game {
 			System.out.println("You were slain by your foe. Unfortunately, your journey "
 					+ "stops here...");
 			System.out.println("");
-			return 10;
+			return 12;
 		}
 		
 	}
@@ -223,21 +224,20 @@ public class Game {
 	
 	public static int store() {
 		System.out.println("You arrive at the opening and see a small log cabin before you. "
-				+ "A dilapidated sign is hanging aboce a doorway that says 'SHOP'. Interested, "
+				+ "A dilapidated sign is hanging above a doorway that says 'SHOP'. Interested, "
 				+ "you decide to head inside.");
 		System.out.println("");
 		return 11;
 	}
 	
 	public static int shop() {
-		store();
-		return 12;
+		Store shopping = new Store(player1);
+		shopping.enter();
+		return 8;
 	}
 	
 	public static void story() {
 		
-		int progress = 0;
-
 		while(progress < 12)
 		{
 			if(progress == 0) //Start
@@ -287,6 +287,10 @@ public class Game {
 			if(progress == 10) //Store
 			{
 				progress = store();
+			}
+			if(progress == 11) //Shop
+			{
+				progress = shop();
 			}
 		}
 		

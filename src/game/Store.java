@@ -62,6 +62,8 @@ public class Store {
 		System.out.println("Welcome! What do you want to buy?");
 		getItems();
 		display();
+		System.out.println("You have "+ player.money);
+		System.out.println();
 		String itemToBuy=playerResponse();
 		if(itemToBuy!=null) {
 			buy(itemToBuy);
@@ -70,24 +72,42 @@ public class Store {
 	}
 
 	public void buy(String itemToBuy) {
+		if(!storeItems.containsKey(itemToBuy))
+		{
+			System.out.println("The shopkeeper shouts 'We don't have that! Why do people "
+					+ "always waste my time!? get outta here!' "
+					+ "He proceeds to push you out of the store so "
+					+ "you continue on your way.");
+			System.out.println("");
+			return;
+		}
 		int cost=storeItems.get(itemToBuy);
 		if(player.money>=cost) {
 			double itemValue=cost*1.5; //temporary gain for item	
 			player.loseMoney(cost);
 			player.addItem(itemToBuy, itemValue);
 			storeItems.remove(itemToBuy);
+			System.out.println("You received " + itemToBuy + "!");
+			System.out.println("The shopkeeper shouts 'You finished? Good! Now"
+					+ "get outta here!' He proceeds to push you out of the store so "
+					+ "you continue on your way.");
+			System.out.println("");
+			return;
 		}
 		else
 		{
-			System.out.println("You dont have enough money so leave");
+			System.out.println("The shopkeeper shouts 'You don't have enough money for that! "
+					+ "Don't waste my time, get outta here!' He proceeds to push you out the of "
+					+ "the store so you continue on your way.");
+			System.out.println("");
 			return;
 
 		}
 
 	}
 
-	private String playerResponse() {
-		String item=scan.nextLine();
+	private String playerResponse() {		
+		String item = scan.nextLine();
 		if(item!="nothing") {
 			return item;
 		}
