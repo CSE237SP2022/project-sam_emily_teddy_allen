@@ -1,11 +1,29 @@
 package game;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Game {
 	
 	private static Player player1;
+	private static int progress;
 	
 	static Scanner scan = new Scanner(System.in);
+	
+	public Game() { //create a character with the given player name
+		// TODO Auto-generated constructor stub
+		player1 = null;
+		progress = 0;
+	}
+	
+	public Player getPlayer() //helper to return player
+	{
+		return player1;
+	}
+	
+	public int getProgress()
+	{
+		return progress;
+	}
 	
 	public static void createCharacter() {
 	    System.out.println("What is your name?");
@@ -27,8 +45,8 @@ public class Game {
 				+ "across the ground. Do you choose the path to the left or the right?");
 		System.out.println("Left (Enter 'L')");
 		System.out.println("Right (Enter 'R')");
-		int progress = 0;
 		String choice = scan.nextLine();
+		progress = 0;
 		while(progress == 0)
 		{
 			if(choice.equals("L"))
@@ -59,10 +77,9 @@ public class Game {
 		System.out.println("");
 		System.out.println("No (Enter 'N')");
 		System.out.println("");
-		int progress = 0;
 		
 		String choice = scan.nextLine();
-		while(progress == 0)
+		while(progress == 1)
 		{
 			if(choice.equals("Y"))
 			{
@@ -79,7 +96,7 @@ public class Game {
 				choice = scan.nextLine();
 			}
 		}
-		return 0;
+		return 1;
 	}
 	
 	public static int elf() {
@@ -92,7 +109,6 @@ public class Game {
 		System.out.println("");
 		System.out.println("Run away (Enter 'N')");
 		System.out.println("");
-		int progress = 0;
 		
 		String choice = scan.nextLine();
 		while(progress == 2)
@@ -114,7 +130,7 @@ public class Game {
 				choice = scan.nextLine();
 			}
 		}
-		return 0;
+		return 2;
 		
 	}
 	
