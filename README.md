@@ -23,4 +23,4 @@ Is there anything that you implemented but doesn't currently work?
 Not at the moment
 
 What commands are needed to compile and run your code from the command line (or better yet, provide a script that people can use to run your program!)
-You need to navigate to the src folder and ./Bandersnatch.sh (you may need to chmod +x Bandersnatch.sh though it should have exeuction permissions already)
+You need to navigate to the src folder and run ./Bandersnatch.sh (you may need to chmod +x Bandersnatch.sh though it should have exeuction permissions already)
