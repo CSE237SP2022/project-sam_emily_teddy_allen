@@ -191,25 +191,25 @@ public class Game {
 	public static int happy_elf() {
 		System.out.println("After finishing the game, your new friend seems pleased. "
 				+ "'Thank you for playing with me!', he grins and gestures for you to "
-				+ "follow him. He leads you to a path that seems to lead out of the forest. "
-				+ "'Right this way and you'll be free!'");
+				+ "follow him. He leads you to a path that seems to lead to and opening in the trees. "
+				+ "'Right this way!'");
 		System.out.println("");
-		return 8;
+		return 10;
 	}
 	
 	public static int defeat_enemy() {
 		System.out.println("Upon defeat, the enemy screeches in pain and fades "
 				+ "away into a dark mist. The mist blows through the tress in front of "
-				+ "you revealing a path out of the forest.");
+				+ "you revealing a path towards and opening in the trees.");
 		System.out.println("");
-		return 8;
+		return 10;
 	}
 	
 	public static int win() {
 		System.out.println("After following the path, you "
 				+ "are relieved to see you are home. Your journey is now complete. You Win!");
 		System.out.println("");
-		return 10;
+		return 12;
 	}
 	
 	public static int lost() {
@@ -218,14 +218,27 @@ public class Game {
 				+ "were once in front of you. With no sense of direction you wander the forest, "
 				+ "lost, for all eternity...");
 		System.out.println("");
-		return 10;
+		return 12;
+	}
+	
+	public static int store() {
+		System.out.println("You arrive at the opening and see a small log cabin before you. "
+				+ "A dilapidated sign is hanging aboce a doorway that says 'SHOP'. Interested, "
+				+ "you decide to head inside.");
+		System.out.println("");
+		return 11;
+	}
+	
+	public static int shop() {
+		store();
+		return 12;
 	}
 	
 	public static void story() {
 		
 		int progress = 0;
 
-		while(progress < 10)
+		while(progress < 12)
 		{
 			if(progress == 0) //Start
 			{
@@ -270,6 +283,10 @@ public class Game {
 			if(progress == 9) //Lost
 			{
 				progress = lost();
+			}
+			if(progress == 10) //Store
+			{
+				progress = store();
 			}
 		}
 		
