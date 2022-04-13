@@ -32,5 +32,23 @@ class PlayerUnitTests {
 		Player testPlayer=new Player("John");
 		assertEquals(testPlayer.getAttackStat(),25);	
 	}
+	@Test
+	void loseMoneyCheck(){
+		Player testPlayer=new Player("John");
+		testPlayer.loseMoney(10);
+		assertEquals(testPlayer.money,0);	
+	}
+	@Test
+	void gainMoneyCheck(){
+		Player testPlayer=new Player("John");
+		testPlayer.addMoney(50);
+		assertEquals(testPlayer.money,60);	
+	}
+	@Test
+	void addItemCheck(){
+		Player testPlayer=new Player("John");
+		testPlayer.addItem("TestItem", 10);
+		assertEquals(testPlayer.playerItems.size(),1);	
+	}
 
 }
