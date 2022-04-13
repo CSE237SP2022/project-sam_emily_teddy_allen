@@ -12,7 +12,15 @@ Allen: I worked priarily on making our main story loop. I laid out a multiple pa
 
 Right now there is nothing currently broken, but things can be improved. There is an issue with eclispe where you have to configure the build path after each pull. However, the code still works in terminal it seems to just be eclispe.
 
-In order to run our game you navigate to the src folder, run <br/>
-javac ./game/Game.java <br/>
-then run  <br/>
-java ./game/Game.java.
+Iteration 2:
+What user stories were completed this iteration?
+This iteration we made improvements tot he blackjack and DiceGame AI to be more responsive to the player. We also improved the battle system to level up each time you win and gain money to spend at a shop. We also made the shop this time that you can visit and buy items. We  added spacing throughout the entire game to make it more readable. A script called Bandersnatch.sh was added to make our game more easily usable. The story was updated with better modularity and function so that it can be more easily tested and to imporve cleanliness.
+
+What user stories do you intend to complete next iteration?
+We added the shop but we have no means of currently using the items you buy. Thus, we would like to add the ability to use items throughout the story and battle in order to heal. Additionally, we can add the ability to sell items you previously bought/items dropped in battle to make more money.
+
+Is there anything that you implemented but doesn't currently work?
+Not at the moment
+
+What commands are needed to compile and run your code from the command line (or better yet, provide a script that people can use to run your program!)
+You need to navigate to the src folder and ./Bandersnatch.sh (you may need to chmod +x Bandersnatch.sh though it should have exeuction permissions already)
