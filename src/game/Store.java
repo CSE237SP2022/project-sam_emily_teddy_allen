@@ -116,13 +116,20 @@ public class Store {
 		}
 
 	}
-	public void sellItem() {
+	public String sellItemUserInput() {
 		System.out.println("What do you want to sell?");
 		String item = scan.nextLine();
-		Double value=player.playerItems.get(item);
+		return item;
+	}
+	public void sellItem(String item) {
+		Double value=player.playerItems.get(item)*0.75;
 		player.playerItems.remove(item);
 		player.addMoney(value.intValue());
-		
+	}
+	public void sell() {
+		String item=sellItemUserInput();
+		sellItem(item);
+
 	}
 	public String pickItem() {
 		System.out.println("What do you want to buy?");
@@ -136,14 +143,14 @@ public class Store {
 			return pickItem();
 		}
 		else if(option.equals("Sell")) {
-			sellItem();
+			sell();
 			return null;
 		}
 		else {
 			System.out.println("Invalid option");
 			return null;
 		}
-		
+
 
 	}
 
