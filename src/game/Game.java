@@ -32,6 +32,7 @@ public class Game {
 		System.out.println("Hello "+ player1.getName());
 
 		System.out.println("Starting game");
+		System.out.println("");
 	}
 	
 	
@@ -39,31 +40,39 @@ public class Game {
 		createCharacter();
 	}
 	
+	public static void choose() {
+		System.out.println("");
+		System.out.println("Yes (Enter 'Y')");
+		System.out.println("");
+		System.out.println("No (Enter 'N')");
+		System.out.println("");
+	}
+	
+	public static void begin()
+	{
+		System.out.println("You wake up in the woods. "
+				+ "As you open your eyes and notice a building in front of you. "
+				+ "The sign says 'Store'. You reach into your pocket and feel a little "
+				+ "bit of pocket change. You're not sure where you are, but you figure "
+				+ "it might not be a bad idea to stock up on something before you try "
+				+ "to find your way out. So you head in.");
+		shop();
+	}
+	
 	public static int start() {
 		System.out.println("You begin your journey in the woods. Trees extend in every direction. "
 				+ "Upon closer inspection you notice two trails that seemed to be stamped out "
-				+ "across the ground. Do you choose the path to the left or the right?");
-		System.out.println("Left (Enter 'L')");
-		System.out.println("Right (Enter 'R')");
-		String choice = scan.nextLine();
-		progress = 0;
-		while(progress == 0)
+				+ "across the ground. Do you choose the path to travel the path to the left?");
+		choose();
+		if(scanInput())
 		{
-			if(choice.equals("L"))
-			{
-				return 1;
-			}
-			else if(choice.equals("R"))
-			{
-				return 2;
-			}
-			else
-			{
-				System.out.println("Please Enter 'L' or 'R'");
-				choice = scan.nextLine();
-			}
+			return 1;
 		}
-		return 0;
+		else
+		{
+			return 2;
+		}
+		
 	}
 	
 	public static int hooded() {
@@ -72,67 +81,34 @@ public class Game {
 				+ "in the distance. As the hooded figure becomes more defined, you notice they're "
 				+ "facing your direction and their hand is out. Within it, you view two dice and "
 				+ "suddenly the figure utters in a high, nasally voice 'Wanna play with my dice'?");
-		System.out.println("");
-		System.out.println("Yes (Enter 'Y')");
-		System.out.println("");
-		System.out.println("No (Enter 'N')");
-		System.out.println("");
 		
-		String choice = scan.nextLine();
-		while(progress == 1)
+		choose();
+		if(scanInput())
 		{
-			if(choice.equals("Y"))
-			{
-				System.out.println("Woo");
-				return 3;
-			}
-			else if(choice.equals("N"))
-			{
-				return 4;
-			}
-			else
-			{
-				System.out.println("Please Enter 'Y' or 'N'");
-				System.out.println("");
-				choice = scan.nextLine();
-			}
+			return 3;
 		}
-		return 1;
+		else
+		{
+			return 4;
+		}
 	}
 	
 	public static int elf() {
 		
 		System.out.println("You head down the path. Your hear ruffling in the trees "
 				+ "above you. As you look up, an elf-like creature falls down in front of you. "
-				+ "'BET YOU CAN'T BEAT ME IN CARDS' he shouts. ");
-		System.out.println("");
-		System.out.println("'YES I CAN!' (Enter 'Y')");
-		System.out.println("");
-		System.out.println("Run away (Enter 'N')");
-		System.out.println("");
-		
-		String choice = scan.nextLine();
-		while(progress == 2)
+				+ "'BET YOU CAN'T BEAT ME IN CARDS' he shouts. Do you want to try?");
+		choose();
+		if(scanInput())
 		{
-			if(choice.equals("Y"))
-			{
-				return 5;
-			}
-			else if(choice.equals("N"))
-			{
-				System.out.println("You run back to the left path. ");
-				System.out.println("");
-				return 1;
-			}
-			else
-			{
-				System.out.println("Please Enter 'Y' or 'N'");
-				System.out.println("");
-				choice = scan.nextLine();
-			}
+			return 5;
 		}
-		return 2;
-		
+		else
+		{
+			System.out.println("You run back to the left path. ");
+			System.out.println("");
+			return 1;
+		}	
 	}
 	
 	public static int dice() {
@@ -151,14 +127,18 @@ public class Game {
 		}
 	}
 	
+	public static int battle() {
+		Player enemy = new Player("Monster");
+		Battle battle = new Battle(player1, enemy);
+		return battle.fight();
+	}
+	
 	public static int combat() {
 		System.out.println("They suddenly morph into a monster and attack you!");
 		System.out.println("");
 		//combat sequence
+		int endCon = battle();
 		
-		Player enemy = new Player("Monster");
-		Battle battle = new Battle(player1, enemy);
-		int endCon = battle.fight();
 		if(endCon == 0) // Enemy died
 		{
 			return 7;
@@ -180,12 +160,15 @@ public class Game {
 		}
 		
 	}
+	public static void blackjack()
+	{
+		String [] cards = new String[10];
+		Blackjack.main(cards);
+	}
 	
 	public static int cards() {
 		//card game
-		String [] cards = new String[10];
-		Blackjack.main(cards);
-		
+		blackjack();
 		return 6;
 	}
 	
@@ -223,7 +206,7 @@ public class Game {
 	}
 	
 	public static int store() {
-		System.out.println("You arrive at the opening and see a small log cabin before you. "
+		System.out.println("You arrive at an opening and see a small log cabin before you. "
 				+ "A dilapidated sign is hanging above a doorway that says 'SHOP'. Interested, "
 				+ "you decide to head inside.");
 		System.out.println("");
@@ -237,7 +220,6 @@ public class Game {
 	}
 	
 	public static void story() {
-		
 		while(progress < 12)
 		{
 			if(progress == 0) //Start
@@ -248,22 +230,18 @@ public class Game {
 			{
 				progress = hooded();
 			}
-			
 			if(progress == 2) //Elf
 			{
 				progress =  elf();
 			}
-			
 			if(progress == 3) //Dice
 			{
 				progress = dice();
 			}
-			
 			if(progress == 4) //Combat
 			{
 				progress = combat();
 			}
-			
 			if(progress == 5) //Cards
 			{
 				progress = cards();
@@ -298,8 +276,37 @@ public class Game {
 		scan.close();
 	}
 	
-	public static void main(String[] args) {
+	public static boolean scanInput()
+	{
+		boolean valid = false;
+		String choice = scan.nextLine();
+		
+		while(valid == false)
+		{
+			if(choice.equals("Y"))
+			{
+				return true;
+			}
+			else if(choice.equals("N"))
+			{
+				return false;
+			}
+			else
+			{
+				System.out.println("Please Enter 'Y' or 'N'");
+				choice = scan.nextLine();
+			}
+		}
+		return false;
+	}
+	
+	public static void main(String[] args) {//let's try separating out more functions to call in here
+		//let's make a scanProg function that takes in the progress value, performs scan and returns
+		//the new progress accordingly. Then we can call it in here as many times as necessary maybe?
+		//Employ a while loop in here with a boolean to check with scanProg is necessary, that way
+		//it's called as many times as it's needed. This should separate out our scanner.
 		intro();
+		begin();
 		story();
 	}
 }
