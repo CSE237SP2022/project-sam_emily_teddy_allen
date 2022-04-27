@@ -53,7 +53,7 @@ public class Store {
 	public void display() {
 		System.out.println("********************");
 		System.out.println();
-		System.out.println("Welcome! What do you want to buy?");
+		System.out.println("Welcome! What do you want to buy? Enter Buy to buy or Sell to sell");
 		for(String itemName:storeItems.keySet()) {
 			System.out.println(itemName+" costs "+ storeItems.get(itemName));
 			System.out.println();

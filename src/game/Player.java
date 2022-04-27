@@ -58,6 +58,7 @@ public class Player {
 		level += 1;
 	}
 	public void useItem(String item) {
+		System.out.println("You used "+item);
 		heal(this.playerItems.get(item));
 		this.playerItems.remove(item);
 	}

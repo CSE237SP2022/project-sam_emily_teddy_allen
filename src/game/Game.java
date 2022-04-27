@@ -313,12 +313,13 @@ public class Game {
 				return true;
 			}
 			else if(choice.equals("N"))
+			
 			{
 				return false;
 			}else if (choice.equals("Items")) {
 				items();
 			}
-			if(valid) {
+			if(!valid) {
 				System.out.println("Please Enter 'Y' or 'N'");
 			}
 		}
