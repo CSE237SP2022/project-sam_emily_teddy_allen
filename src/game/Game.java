@@ -222,56 +222,89 @@ public class Game {
 		return 8;
 	}
 
+	public static void part1()
+	{
+		if(progress == 0) //Start
+		{
+			progress = start();
+		}
+		if(progress == 1) //Hooded Figure
+		{
+			progress = hooded();
+		}
+		if(progress == 2) //Elf
+		{
+			progress =  elf();
+		}
+	}
+	
+	public static void part2()
+	{
+		if(progress == 3) //Dice
+		{
+			progress = dice();
+		}
+		if(progress == 4) //Combat
+		{
+			progress = combat();
+		}
+		if(progress == 5) //Cards
+		{
+			progress = cards();
+		}
+	}
+	
+	public static void part3()
+	{
+		if(progress == 6) //Happy Elf
+		{
+			progress = happy_elf();
+		}
+		if(progress == 7) //Defeat Enemy
+		{
+			progress = defeat_enemy();
+		}
+		if(progress == 8) //Win
+		{
+			progress = win();
+		}
+	}
+	
+	public static void part4()
+	{
+		if(progress == 9) //Lost
+		{
+			progress = lost();
+		}
+		if(progress == 10) //Store
+		{
+			progress = store();
+		}
+		if(progress == 11) //Shop
+		{
+			progress = shop();
+		}
+	}
+	
 	public static void story() {
 		while(progress < 12)
 		{
-			if(progress == 0) //Start
+			
+			if(progress >= 2)
 			{
-				progress = start();
+				part1();
 			}
-			if(progress == 1) //Hooded Figure
+			if(progress >= 5 && progress <= 3)
 			{
-				progress = hooded();
+				part2();
 			}
-			if(progress == 2) //Elf
+			if(progress >= 8 && progress <= 6)
 			{
-				progress =  elf();
+				part3();
 			}
-			if(progress == 3) //Dice
+			if(progress >= 9 && progress <= 11)
 			{
-				progress = dice();
-			}
-			if(progress == 4) //Combat
-			{
-				progress = combat();
-			}
-			if(progress == 5) //Cards
-			{
-				progress = cards();
-			}
-			if(progress == 6) //Happy Elf
-			{
-				progress = happy_elf();
-			}
-			if(progress == 7) //Defeat Enemy
-			{
-				progress = defeat_enemy();
-			}
-			if(progress == 8) //Win
-			{
-				progress = win();
-			}
-			if(progress == 9) //Lost
-			{
-				progress = lost();
-			}
-			if(progress == 10) //Store
-			{
-				progress = store();
-			}
-			if(progress == 11) //Shop
-			{
-				progress = shop();
+				part4();
 			}
 		}
 
