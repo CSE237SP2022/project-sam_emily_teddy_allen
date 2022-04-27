@@ -29,9 +29,15 @@ class DiceGameTests {
 		assertEquals(15,sum);
 	}
 	@Test
+	void DiceGameRollTest() {
+		DiceGame game=new DiceGame();
+		int [] dice=game.getDice();
+		assertEquals(6,dice.length);
+	}
+	@Test
 	void DiceGameRandomTest() {
 		DiceGame game=new DiceGame();
-		double random=game.randomNumber(1, 100);
+		double random=game.randomNumber(100);
 		boolean checkRange=false;
 		if(random>0&&random<101) {
 			checkRange=true;

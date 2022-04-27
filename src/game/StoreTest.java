@@ -25,6 +25,15 @@ class StoreTest {
 
 	}
 	@Test
+	void testSell() {
+		Player tester=new Player("John");
+		Store testStore=new Store(tester);
+		tester.addItem("test", 100);
+		testStore.sellItem("test");
+		assertEquals(85,tester.money);
+
+	}
+	@Test
 	void testNoMoney() {
 
 		Player tester=new Player("John");

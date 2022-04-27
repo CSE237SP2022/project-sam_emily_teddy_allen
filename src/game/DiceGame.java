@@ -74,6 +74,7 @@ public class DiceGame {
 	}
 	private Boolean humanChoice(int cpuGuess){ //processes the human turn returning true if they believe the cpu and false if not. Also has help() function if the player needs instructions
 		while(true) {
+			printBarrier();
 			System.out.println("CPU says sum is "+cpuGuess+". Do you believe them? Enter y for Yes n for No. Type Help! for instructions");
 			String humanResponse=scan.nextLine();
 			if(humanResponse.equals("y")) {
@@ -89,35 +90,48 @@ public class DiceGame {
 
 
 	}
-	private void help() {//prints out rules to game
+	private void help() {
 		System.out.println("This is a dice game similar to liars dice or cheat. A cpu will roll dice and provide a sum. A player can choose to believe the CPU or doubt them. If they are correct, the cpu will lose a dice (starting from 6), if not, the player will lose a life (they start with 3).");
 	}
-
-	private boolean nextTurn() { //processes a turn and returns true if the player correctly guesses and false if not
-		System.out.println("CPU has " + cpuDice + " dice left. Player has " + humanLives + " lives left");
-		Boolean humanWin=false;
-		int [] cpuDice=getDice();
-		sum=sumDice(cpuDice);
-		int cpuGuess=cpuAnswer(sum);
-		Boolean humanResponse=humanChoice(cpuGuess);
+	
+	private boolean processWin(int cpuGuess,boolean humanResponse) {
 		if(humanResponse) {	
 			if(sum==cpuGuess) {
-				humanWin=true;
+				return true;
 			}
 		}
 		else {
 			if(sum!=cpuGuess) {
-				humanWin=true;
+				return true;
 			}
 
 		}
+		return false;
+	}
+	
+
+	private boolean nextTurn() {
+		printBarrier();
+		System.out.println("CPU has " + cpuDice + " dice left. Player has " + humanLives + " lives left");
+		int [] cpuDice=getDice();
+		sum=sumDice(cpuDice);
+		int cpuGuess=cpuAnswer(sum);
+		Boolean humanResponse=humanChoice(cpuGuess);
+		Boolean humanWin=processWin(cpuGuess,humanResponse);
 		System.out.println("CPU had a sum of "+sum);
 		return humanWin;
 
 	}
+	
+	private void printBarrier() {
+		System.out.println();
+		System.out.println("********************");
+		System.out.println();
+	}
 
 
-	public boolean play() { //plays the game by processing turns until either the human is out of lives or cpu out of dice. If the player wins, it returns true, if not it returns false.
+	public boolean play() {
+		printBarrier();
 		help();
 		while(humanLives>0&&cpuDice>0) {
 			Boolean resultOfTurn=nextTurn();
@@ -128,15 +142,13 @@ public class DiceGame {
 				humanLives--;
 			}
 		}
-		boolean winner=getWinner();
 		
-		
-		return winner;
+		return getWinner();
 	}
 
 
 
-	private boolean getWinner() { //gets winner by comparing number of dice to number of lives. Returns true if human wins, false if not.
+	private boolean getWinner() { 
 		if(humanLives>0) {
 			return true;
 		}
