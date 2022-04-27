@@ -53,7 +53,7 @@ public class Store {
 	public void display() {
 		System.out.println("********************");
 		System.out.println();
-		System.out.println("Welcome! What do you want to buy? Enter Buy to buy or Sell to sell");
+		System.out.println("Welcome! Would you like to buy or sell? (Enter 'Buy' to buy or 'Sell' to sell)");
 		for(String itemName:storeItems.keySet()) {
 			System.out.println(itemName+" costs "+ storeItems.get(itemName));
 			System.out.println();
@@ -73,7 +73,7 @@ public class Store {
 		}
 
 	}
-	public void checkItem(String item) {
+	public boolean checkItem(String item) {
 		if(!storeItems.containsKey(item))
 		{
 			System.out.println("The shopkeeper shouts 'We don't have that! Why do people "
@@ -81,8 +81,9 @@ public class Store {
 					+ "He proceeds to push you out of the store so "
 					+ "you continue on your way.");
 			System.out.println("");
-			return;
+			return false;
 		}
+		return true;
 	}
 
 	public void buyItem(String item,int cost) {
@@ -91,7 +92,7 @@ public class Store {
 		player.addItem(item, itemValue);
 		storeItems.remove(item);
 		System.out.println("You received " + item + "!");
-		System.out.println("The shopkeeper shouts 'You finished? Good! Now"
+		System.out.println("The shopkeeper shouts 'You finished? Good! Now "
 				+ "get outta here!' He proceeds to push you out of the store so "
 				+ "you continue on your way.");
 		System.out.println("");
@@ -112,26 +113,43 @@ public class Store {
 	}
 
 	public void buy(String itemToBuy) {
-		checkItem(itemToBuy);
-		int cost=storeItems.get(itemToBuy);
-		if(player.money>=cost) {
-			buyItem(itemToBuy, cost);
-		}
-		else
+		if(checkItem(itemToBuy))
 		{
-			buyFail();
+			int cost=storeItems.get(itemToBuy);
+			if(player.money>=cost) {
+				buyItem(itemToBuy, cost);
+			}
+			else
+			{
+				buyFail();
+			}
 		}
 
 	}
 	public String sellItemUserInput() {
-		System.out.println("What do you want to sell?");
+		System.out.println("What do you want to sell? (Enter the name)");
+		player.showItems();
 		String item = scan.nextLine();
 		return item;
 	}
 	public void sellItem(String item) {
-		Double value=player.playerItems.get(item)*0.75;
-		player.playerItems.remove(item);
-		player.addMoney(value.intValue());
+		if(player.playerItems.containsKey(item))
+		{
+			Double value=player.playerItems.get(item)*0.75;
+			player.playerItems.remove(item);
+			player.addMoney(value.intValue());
+			System.out.println("You have sold the item for " + value.intValue() + "!");
+			System.out.println("You know have " + player.money);
+			System.out.println("");
+		}
+		else
+		{
+			System.out.println("The shopkeeper shouts 'You don't even have that to sell! "
+					+ "Don't waste my time, get outta here!' He proceeds to push you out the of "
+					+ "the store so you continue on your way.");
+			System.out.println("");
+		}
+		
 	}
 	public void sell() {
 		String item=sellItemUserInput();
@@ -139,7 +157,7 @@ public class Store {
 
 	}
 	public String pickItem() {
-		System.out.println("What do you want to buy?");
+		System.out.println("What do you want to buy? (Enter the name)");
 		String item = scan.nextLine();
 		return item;
 	}

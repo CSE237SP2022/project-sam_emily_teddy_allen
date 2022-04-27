@@ -43,6 +43,7 @@ public class Game {
 
 	public void intro() {
 		createCharacter();
+		progress = 0;
 	}
 
 	public void choose() {
