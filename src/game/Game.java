@@ -24,6 +24,11 @@ public class Game {
 	{
 		return progress;
 	}
+	
+	public Scanner getScanner()
+	{
+		return scan;
+	}
 
 	public void createCharacter() {
 		System.out.println("What is your name?");
@@ -319,7 +324,7 @@ public class Game {
 		}
 	}
 	public boolean playAgain() {
-		System.out.println("Do you want to play again? Y for yes N for no");
+		System.out.println("Do you want to play again? 'Y' for yes 'N' for no");
 		return scanInput();
 		
 	}
@@ -365,11 +370,7 @@ public class Game {
 		story();
 	}
 
-	public static void main(String[] args) {//let's try separating out more functions to call in here
-		//let's make a scanProg function that takes in the progress value, performs scan and returns
-		//the new progress accordingly. Then we can call it in here as many times as necessary maybe?
-		//Employ a while loop in here with a boolean to check with scanProg is necessary, that way
-		//it's called as many times as it's needed. This should separate out our scanner.
+	public static void main(String[] args) {
 		Game game = new Game();
 		game.play();
 	}
