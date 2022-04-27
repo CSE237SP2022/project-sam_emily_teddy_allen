@@ -60,6 +60,7 @@ public class Player {
 	public void useItem(String item) {
 		System.out.println("You used "+item);
 		heal(this.playerItems.get(item));
+		System.out.println("You now have " + getHealth() + " health");
 		this.playerItems.remove(item);
 	}
 	public void checkItem(String item) {
