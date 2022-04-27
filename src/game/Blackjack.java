@@ -17,7 +17,7 @@ public class Blackjack {
 		this.dealerTotal = arraySum(this.dealerCards);
 	}
 	
-	public static void main(String args[]) {
+	public void main(String args[]) {
 		System.out.println("********************");
 		System.out.println();
 		System.out.println("This is Blackjack. Your goal is to get a sum from your cards as close "
