@@ -24,3 +24,13 @@ Not at the moment
 
 What commands are needed to compile and run your code from the command line (or better yet, provide a script that people can use to run your program!)
 You need to navigate to the src folder and run ./Bandersnatch.sh (you may need to chmod +x Bandersnatch.sh though it should have exeuction permissions already)
+
+Iteration 3:
+What user stories were completed this iteration?
+We completed small things this iteration. For example, we now have the ability to sell items in the shop and to use items during the story to heal. Also, we added the ability to restart the game at the end. This was recommended to us by our testers in the last iteration but sounded like a good idea so we implemented it. From there, we spent most of this iteration cleaning up our code to include more helper methods and adding more tests.
+
+Is there anything that you implemented but doesn't currently work?
+N/A everything works so far to our knowledge
+
+What commands are needed to compile and run your code from the command line
+clone the repository and navigate to src folder and run ./Bandersnatch.sh
