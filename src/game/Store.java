@@ -103,6 +103,13 @@ public class Store {
 				+ "the store so you continue on your way.");
 		System.out.println("");
 	}
+	
+	public void invalidOption() {
+		System.out.println("The shopkeeper shouts 'My programming tells me that's not a valid response! "
+				+ "Don't waste my time, get outta here!' He proceeds to push you out the of "
+				+ "the store so you continue on your way.");
+		System.out.println("");
+	}
 
 	public void buy(String itemToBuy) {
 		checkItem(itemToBuy);
@@ -147,7 +154,7 @@ public class Store {
 			return null;
 		}
 		else {
-			System.out.println("Invalid option");
+			invalidOption();
 			return null;
 		}
 

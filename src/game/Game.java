@@ -299,15 +299,15 @@ public class Game {
 			{
 				part1();
 			}
-			if(progress >= 5 && progress <= 3)
+			if(progress <= 5 && progress >= 3)
 			{
 				part2();
 			}
-			if(progress >= 8 && progress <= 6)
+			if(progress <= 8 && progress >= 6)
 			{
 				part3();
 			}
-			if(progress >= 9 && progress <= 11)
+			if(progress <= 11 && progress >= 9)
 			{
 				part4();
 			}
@@ -358,7 +358,7 @@ public class Game {
 				items();
 			}
 			if(!valid) {
-				System.out.println("Please Enter 'Y' or 'N'");
+				System.out.println("Please Enter 'Y' or 'N' or 'Items'");
 			}
 		}
 		return false;
