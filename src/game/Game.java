@@ -25,7 +25,7 @@ public class Game {
 		return progress;
 	}
 
-	public static void createCharacter() {
+	public void createCharacter() {
 		System.out.println("What is your name?");
 		String name = scan.nextLine();
 		player1 = new Player(name);
@@ -36,11 +36,11 @@ public class Game {
 	}
 
 
-	public static void intro() {
+	public void intro() {
 		createCharacter();
 	}
 
-	public static void choose() {
+	public void choose() {
 		System.out.println("");
 		System.out.println("Yes (Enter 'Y')");
 		System.out.println("");
@@ -50,7 +50,7 @@ public class Game {
 		System.out.println("");
 	}
 
-	public static void begin()
+	public void begin()
 	{
 		System.out.println("You wake up in the woods. "
 				+ "As you open your eyes and notice a building in front of you. "
@@ -61,7 +61,7 @@ public class Game {
 		shop();
 	}
 
-	public static int start() {
+	public int start() {
 		System.out.println("You begin your journey in the woods. Trees extend in every direction. "
 				+ "Upon closer inspection you notice two trails that seemed to be stamped out "
 				+ "across the ground. Do you choose the path to travel the path to the left?");
@@ -77,7 +77,7 @@ public class Game {
 
 	}
 
-	public static int hooded() {
+	public int hooded() {
 
 		System.out.println("You head down the path and notice a hooded figure "
 				+ "in the distance. As the hooded figure becomes more defined, you notice they're "
@@ -95,7 +95,7 @@ public class Game {
 		}
 	}
 
-	public static int elf() {
+	public int elf() {
 
 		System.out.println("You head down the path. Your hear ruffling in the trees "
 				+ "above you. As you look up, an elf-like creature falls down in front of you. "
@@ -113,7 +113,7 @@ public class Game {
 		}	
 	}
 
-	public static int dice() {
+	public int dice() {
 		DiceGame game = new DiceGame();
 		boolean win = game.play();
 		if(win)
@@ -129,13 +129,13 @@ public class Game {
 		}
 	}
 
-	public static int battle() {
+	public int battle() {
 		Player enemy = new Player("Monster");
 		Battle battle = new Battle(player1, enemy);
 		return battle.fight();
 	}
 
-	public static int combat() {
+	public int combat() {
 		System.out.println("They suddenly morph into a monster and attack you!");
 		System.out.println("");
 		//combat sequence
@@ -162,20 +162,20 @@ public class Game {
 		}
 
 	}
-	public static void blackjack()
+	public void blackjack()
 	{
 		String [] cards = new String[10];
 		Blackjack blackjack = new Blackjack();
 		blackjack.main(cards);
 	}
 
-	public static int cards() {
+	public int cards() {
 		//card game
 		blackjack();
 		return 6;
 	}
 
-	public static int happy_elf() {
+	public int happy_elf() {
 		System.out.println("After finishing the game, your new friend seems pleased. "
 				+ "'Thank you for playing with me!', he grins and gestures for you to "
 				+ "follow him. He leads you to a path that seems to lead to and opening in the trees. "
@@ -184,7 +184,7 @@ public class Game {
 		return 10;
 	}
 
-	public static int defeat_enemy() {
+	public int defeat_enemy() {
 		System.out.println("Upon defeat, the enemy screeches in pain and fades "
 				+ "away into a dark mist. The mist blows through the tress in front of "
 				+ "you revealing a path towards and opening in the trees.");
@@ -192,14 +192,14 @@ public class Game {
 		return 10;
 	}
 
-	public static int win() {
+	public int win() {
 		System.out.println("After following the path, you "
 				+ "are relieved to see you are home. Your journey is now complete. You Win!");
 		System.out.println("");
 		return 12;
 	}
 
-	public static int lost() {
+	public int lost() {
 		System.out.println("You ran as fast as you could, losing sight of the things around you. "
 				+ "After a few minutes, you realize you're no longer able to find the paths that "
 				+ "were once in front of you. With no sense of direction you wander the forest, "
@@ -208,7 +208,7 @@ public class Game {
 		return 12;
 	}
 
-	public static int store() {
+	public int store() {
 		System.out.println("You arrive at an opening and see a small log cabin before you. "
 				+ "A dilapidated sign is hanging above a doorway that says 'SHOP'. Interested, "
 				+ "you decide to head inside.");
@@ -216,13 +216,13 @@ public class Game {
 		return 11;
 	}
 
-	public static int shop() {
+	public int shop() {
 		Store shopping = new Store(player1);
 		shopping.enter();
 		return 8;
 	}
 
-	public static void part1()
+	public void part1()
 	{
 		if(progress == 0) //Start
 		{
@@ -238,7 +238,7 @@ public class Game {
 		}
 	}
 	
-	public static void part2()
+	public void part2()
 	{
 		if(progress == 3) //Dice
 		{
@@ -254,7 +254,7 @@ public class Game {
 		}
 	}
 	
-	public static void part3()
+	public void part3()
 	{
 		if(progress == 6) //Happy Elf
 		{
@@ -270,7 +270,7 @@ public class Game {
 		}
 	}
 	
-	public static void part4()
+	public void part4()
 	{
 		if(progress == 9) //Lost
 		{
@@ -286,11 +286,11 @@ public class Game {
 		}
 	}
 	
-	public static void story() {
+	public void story() {
 		while(progress < 12)
 		{
 			
-			if(progress >= 2)
+			if(progress <= 2)
 			{
 				part1();
 			}
@@ -312,30 +312,30 @@ public class Game {
 		end();
 		scan.close();
 	}
-	public static void end() {
+	public void end() {
 		boolean playAgain=playAgain();
 		if(playAgain) {
 			play();
 		}
 	}
-	public static boolean playAgain() {
+	public boolean playAgain() {
 		System.out.println("Do you want to play again? Y for yes N for no");
 		return scanInput();
 		
 	}
-	public static void getItemChoice(){
+	public void getItemChoice(){
 		System.out.println("Which item do you want to use?");
 		String choice = scan.nextLine();
 		player1.checkItem(choice);
 	}
 
 
-	public static void items() {
+	public void items() {
 		player1.showItems();
 		getItemChoice();
 	}
 
-	public static boolean scanInput()
+	public boolean scanInput()
 	{
 		boolean valid = false;
 		while(valid == false)
@@ -359,7 +359,7 @@ public class Game {
 		return false;
 	}
 	
-	public static void play() {
+	public void play() {
 		intro();
 		begin();
 		story();
@@ -370,6 +370,7 @@ public class Game {
 		//the new progress accordingly. Then we can call it in here as many times as necessary maybe?
 		//Employ a while loop in here with a boolean to check with scanProg is necessary, that way
 		//it's called as many times as it's needed. This should separate out our scanner.
-		play();
+		Game game = new Game();
+		game.play();
 	}
 }
