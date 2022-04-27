@@ -53,7 +53,7 @@ public class Blackjack {
 		return sum;
 	}
 	
-  public int [] newCard(int [] cards) {
+  	public int [] newCard(int [] cards) {
 		int cardsAdded[] = new int[cards.length + 1];
 		for (int i = 0; i < cards.length; i++)
 			cardsAdded[i] = cards[i];
@@ -64,7 +64,7 @@ public class Blackjack {
 		
 		boolean addCards=true;
 		while (addCards) {
-      System.out.println();
+      			System.out.println();
 			System.out.println("Would you like to hit (y/n)?");
 			Scanner scan = new Scanner(System.in);
 			String input = scan.nextLine();
@@ -87,7 +87,7 @@ public class Blackjack {
 		boolean gameOver=false;
 		int playerTotal=arraySum(playerCards);
 		int dealerTotal=arraySum(dealerCards);
-    System.out.println("********************");
+    		System.out.println("********************");
 		System.out.println();
 		System.out.println("Dealer's starting cards are "+Arrays.toString(dealerCards)+" --> "+dealerTotal);
 		while (gameOver==false) {
