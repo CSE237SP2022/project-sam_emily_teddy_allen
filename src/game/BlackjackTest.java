@@ -23,6 +23,27 @@ public class BlackjackTest{
 	}
 	
 	@Test
+	void updatePlayerCardsTest() {
+		Blackjack game = new Blackjack();
+		int [] oldCards=game.playerCards;
+		game.updatePlayerCards();
+		int [] newCards=game.playerCards;
+		Boolean test=(newCards.equals(oldCards));
+		assertEquals(test,false);
+		
+	}
+	@Test
+	void dealerDrawCardTest() {
+		Blackjack game = new Blackjack();
+		int [] oldCards=game.dealerCards;
+		game.dealerDraw();
+		int [] newCards=game.dealerCards;
+		Boolean test=(newCards.equals(oldCards));
+		assertEquals(test,false);
+		assertEquals(newCards.length,oldCards.length+1);
+		
+	}
+	@Test
 	void newCardTest() {//test that array of dealer cards is one greater than before
 		Blackjack game = new Blackjack();
 		int [] cards=new int [] {5,10,2};
